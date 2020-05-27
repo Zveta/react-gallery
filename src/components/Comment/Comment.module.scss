@@ -1,0 +1,13 @@
+.Comment {
+  font-size: 13px;
+  margin-bottom: 20px;
+
+  &__time {
+    margin-bottom: 5px;
+    color: #999999;
+  }
+
+  &__text {
+    margin: 0;
+  }
+}

@@ -1,0 +1,17 @@
+.Photo {
+  width: 280px;
+  margin: 0 auto 30px;
+  font-size: 0;
+  background-color: #CCCCCC;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 229px;
+    height: 142px;
+    margin: 0 0 30px;
+  }
+}
