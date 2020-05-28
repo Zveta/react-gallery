@@ -26,6 +26,7 @@ class Gallery extends Component {
             .catch(error => {
                 this.setState({error: true});
                 console.log(error);
+                alert('Что-то пошло не так')
             });
     }
 
@@ -35,6 +36,10 @@ class Gallery extends Component {
                 .then(response => {
                     this.setState({loadedPhoto: response.data})
                 })
+                 .catch(error => {
+                     console.log(error);
+                     alert('Что-то пошло не так')
+                 });
     };
 
     modalCloseHandler = () => {

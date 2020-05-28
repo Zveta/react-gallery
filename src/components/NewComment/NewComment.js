@@ -21,9 +21,11 @@ class NewComment extends Component {
         axios.post('https://boiling-refuge-66454.herokuapp.com/images/' + this.props.photoKey + '/comments', data)
             .then(response => {
                 console.log(response)
+                alert('Комментарий отправлен!')
             })
             .catch(error => {
                 console.log(error)
+                alert('Не удалось отправить комментарий')
             })
         ;
     };

@@ -1,6 +1,7 @@
 {
-  "name": "test-gallery",
+  "name": "react-gallery",
   "version": "0.1.0",
+  "homepage": "http://zveta.github.io/react-gallery",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -16,7 +17,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
