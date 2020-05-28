@@ -1,7 +1,7 @@
 # **Description**
 Simple and clean React gallery made with [create-react-app](https://github.com/facebook/create-react-app), axios, and moment.js. CSS Modules and Sass are used for styling.
 
-Design and functionality are based on the [Avito test](https://github.com/avito-tech/safedeal-frontend-trainee) from the [Hexlet repository](https://github.com/Hexlet/ru-test-assignments) with training assignments.
+Design and functionality are based on the [Avito test assignment](https://github.com/avito-tech/safedeal-frontend-trainee) from the [Hexlet repository](https://github.com/Hexlet/ru-test-assignments) with tasks for practice.
 
 To start project, use `npm i && npm start`.
 
