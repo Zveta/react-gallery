@@ -18,10 +18,7 @@ class Gallery extends Component {
         axios.get( 'https://boiling-refuge-66454.herokuapp.com/images' )
             .then( response => {
                 const photos = response.data;
-                const updatedPhotos = photos.map(photo => {
-                    return photo;
-                });
-                this.setState({photos: updatedPhotos});
+                this.setState({photos: photos});
             } )
             .catch(error => {
                 this.setState({error: true});
