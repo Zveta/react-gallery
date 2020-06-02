@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { string } from 'prop-types';
 import classes from './NewComment.module.scss';
-import Input from './../UI/Input/Input';
+import Input from "../UI/Input/Input";
 
 class NewComment extends Component {
     state = {
@@ -14,45 +15,54 @@ class NewComment extends Component {
 
     postDataHandler = (e) => {
         e.preventDefault();
+        const { comment } = this.state;
+        const { photoKey } = this.props;
+
         const data = {
-            name: this.state.comment.name,
-            comment: this.state.comment.comment
+            name: comment.name,
+            comment: comment.comment
         };
-        axios.post('https://boiling-refuge-66454.herokuapp.com/images/' + this.props.photoKey + '/comments', data)
+        axios.post(`https://boiling-refuge-66454.herokuapp.com/images/${  photoKey  }/comments`, data)
             .then(response => {
-                console.log(response)
+                console.log(response);
                 alert('Комментарий отправлен!')
             })
             .catch(error => {
-                console.log(error)
+                console.log(error);
                 alert('Не удалось отправить комментарий')
             })
         ;
     };
 
     inputCommentHandler = (event) => {
-        this.setState( {
+        this.setState( prevState => ({
             comment:
-                { ...this.state.comment, comment: event.target.value }
-        } )
+                { ...prevState.comment, comment: event.target.value }
+        }) )
     };
 
     inputNameHandler = (event) => {
-        this.setState( {
+        this.setState(prevState => ({
             comment:
-                { ...this.state.comment, name: event.target.value}
-        } )
+                { ...prevState.comment, name: event.target.value}
+        }) )
     };
 
     render () {
+        const { comment } = this.state;
+
         return (
             <form className={classes.Form}>
-                <Input label='Ваше имя' value={this.state.comment.name} onchange={(event) => this.inputNameHandler(event)}/>
-                <Input label='Ваш комментарий' value={this.state.comment.comment} onchange={(event) => this.inputCommentHandler(event)}/>
+                <Input label='Ваше имя' id='username' value={comment.name} onchange={(event) => this.inputNameHandler(event)}/>
+                <Input label='Ваш комментарий' id='comment' value={comment.comment} onchange={(event) => this.inputCommentHandler(event)}/>
                 <button type='submit' className={classes.Submit} onClick={(e) => this.postDataHandler(e)}>Оставить комментарий</button>
             </form>
         );
     }
 }
+
+NewComment.propTypes = {
+    photoKey: string.isRequired,
+};
 
 export default NewComment;

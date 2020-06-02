@@ -1,16 +1,24 @@
 import React from 'react';
 import moment from "moment";
+import { string } from 'prop-types';
 import classes from './Comment.module.scss';
 
+const Comment = ({date, text}) => {
+  return (
+    <div className={classes.Comment}>
+      <p className={classes.Comment__time}>
+        {moment({date})
+          .format('DD.MM.YYYY')}
+      </p>
+      <p className={classes.Comment__text}>{text}</p>
+    </div>
+  )
+};
 
-const comment = (props) => (
-   <div className={classes.Comment}>
-       <p className={classes.Comment__time}>
-           {moment(props.date).format('DD.MM.YYYY')}
-       </p>
-       <p className={classes.Comment__text}>{props.text}</p>
-   </div>
-);
+Comment.propTypes = {
+  date: string.isRequired,
+  text: string.isRequired,
+};
 
 
-export default comment;
+export default Comment;

@@ -1,11 +1,19 @@
 import React from 'react';
+import { func, string } from 'prop-types';
 import classes from './Photo.module.scss';
 
-const photo = (props) => (
-    <div className={classes.Photo} onClick={props.clicked}>
-        <img src={props.url} alt="Фотография"/>
+const Photo = ({clicked, url}) => {
+  return (
+    <div role='button' tabIndex='0' className={classes.Photo} onClick={clicked}>
+      <img src={url} alt="Фотография"/>
     </div>
-);
+  )
+};
 
-export default photo;
+Photo.propTypes = {
+  clicked: func.isRequired,
+  url: string.isRequired,
+};
+
+export default Photo;
 

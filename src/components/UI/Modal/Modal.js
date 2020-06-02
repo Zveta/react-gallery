@@ -1,19 +1,26 @@
 import React from 'react';
+import { bool, func, node } from 'prop-types';
 import classes from './Modal.module.scss';
 import Backdrop from '../Backdrop/Backdrop';
 
-const modal = (props) => (
-    <React.Fragment>
-        <Backdrop show={props.show} clicked={props.clicked}/>
+const Modal = ({show, clicked, children}) => (
+    <>
+        <Backdrop show={show} clicked={clicked}/>
         <div
-            className={props.show ? `${classes.Modal}` : `${classes.Modal} ${classes.Closed}`}
+            className={show ? `${classes.Modal}` : `${classes.Modal} ${classes.Closed}`}
         >
-            <button className={classes.Modal__close} onClick={props.clicked}>
+            <button type='button' className={classes.Modal__close} onClick={clicked}>
                 <span className="Hidden">Закрыть</span>
             </button>
-            {props.children}
+            {children}
         </div>
-    </React.Fragment>
+    </>
 );
 
-export default modal;
+Modal.propTypes = {
+  show: bool.isRequired,
+  clicked: func.isRequired,
+  children: node.isRequired
+};
+
+export default Modal;

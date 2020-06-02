@@ -1,17 +1,20 @@
 import React from 'react';
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import { node } from 'prop-types';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
-const layout = (props) => {
-    return (
-        <React.Fragment>
-            <Header/>
-            <main>
-                {props.children}
-            </main>
-            <Footer/>
-        </React.Fragment>
-    )
+const Layout = ({ children }) => (
+  <>
+    <Header/>
+    <main>
+      {children}
+    </main>
+    <Footer/>
+  </>
+);
+
+Layout.propTypes = {
+  children: node.isRequired
 };
 
-export default layout;
+export default Layout;

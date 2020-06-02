@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
+import axios from "axios";
 import classes from './Gallery.module.scss';
-import Photo from './../../components/Photo/Photo';
+import Photo from "../../components/Photo/Photo";
 import FullPhoto from "../FullPhoto/FullPhoto";
 import Modal from "../../components/UI/Modal/Modal";
-import axios from "axios";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
 class Gallery extends Component {
     state = {
         photos: [],
-        selectedPhotoId: null,
-        error: false,
-        loadedPhoto: null
+        selectedPhotoId: '',
+        loadedPhoto: null,
+        showModal: false
     };
 
     componentDidMount () {
         axios.get( 'https://boiling-refuge-66454.herokuapp.com/images' )
             .then( response => {
                 const photos = response.data;
-                this.setState({photos: photos});
+                this.setState({photos});
             } )
             .catch(error => {
-                this.setState({error: true});
                 console.log(error);
                 alert('Что-то пошло не так')
             });
@@ -29,7 +28,7 @@ class Gallery extends Component {
 
     photoSelectedHandler = (id) => {
         this.setState({selectedPhotoId: id, showModal: true, loadedPhoto: null});
-         axios.get('https://boiling-refuge-66454.herokuapp.com/images/' + id)
+         axios.get(`https://boiling-refuge-66454.herokuapp.com/images/${  id}`)
                 .then(response => {
                     this.setState({loadedPhoto: response.data})
                 })
@@ -44,10 +43,11 @@ class Gallery extends Component {
     };
 
     render () {
-        let photos = <Spinner/>;
+        const { photos, showModal, loadedPhoto, selectedPhotoId } = this.state;
+        let content = <Spinner/>;
 
-        if (this.state.photos) {
-            photos = this.state.photos.map(photo => {
+        if (photos) {
+          content = photos.map(photo => {
                 return <Photo
                     key={photo.id}
                     url={photo.url}
@@ -57,9 +57,9 @@ class Gallery extends Component {
 
         return (
             <div className={classes.Gallery}>
-                {photos}
-                <Modal show={this.state.showModal} clicked={this.modalCloseHandler}>
-                    <FullPhoto loadedPhoto={this.state.loadedPhoto} id={this.state.selectedPhotoId} />
+                {content}
+                <Modal show={showModal} clicked={this.modalCloseHandler}>
+                    <FullPhoto loadedPhoto={loadedPhoto} id={selectedPhotoId} />
                 </Modal>
             </div>
         );

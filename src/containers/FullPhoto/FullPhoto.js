@@ -1,31 +1,33 @@
 import React, {Component} from 'react';
+import { shape, string } from 'prop-types';
 import classes from './FullPhoto.module.scss';
 import Comment from '../../components/Comment/Comment';
-import NewComment from "../../components/NewComment/NewComment";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import NewComment from '../../components/NewComment/NewComment';
 
 class FullPhoto extends Component {
     render() {
+        const { id, loadedPhoto } = this.props;
         let photo = '';
 
-        if (this.props.id) {
+        if (id) {
             photo = <Spinner/>;
         }
 
-        if (this.props.loadedPhoto) {
-            let comments = Object.values(this.props.loadedPhoto.comments).map(comment => {
+        if (loadedPhoto) {
+            const comments = Object.values(loadedPhoto.comments).map(comment => {
                 return <Comment key={comment.id} date={comment.date} text={comment.text}/>
             });
 
             photo = (
                 <div className={classes.FullPhoto}>
                     <div className={classes.FullPhoto__img}>
-                        <img src={this.props.loadedPhoto.url} alt=""/>
+                        <img src={loadedPhoto.url} alt=""/>
                     </div>
                     <ul className={classes.FullPhoto__comments}>
                         {comments}
                     </ul>
-                    <NewComment photoKey={this.props.loadedPhoto.id}/>
+                    <NewComment photoKey={loadedPhoto.id}/>
                 </div>
             )
         }
@@ -34,5 +36,18 @@ class FullPhoto extends Component {
         )
     }
 }
+
+FullPhoto.propTypes = {
+  id: string.isRequired,
+  loadedPhoto: shape(
+    {
+      url: string.isRequired,
+      id: string.isRequired
+    })
+};
+
+FullPhoto.defaultProps = {
+  loadedPhoto: {}
+};
 
 export default FullPhoto;
