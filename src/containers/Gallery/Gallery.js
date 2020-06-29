@@ -30,7 +30,8 @@ class Gallery extends Component {
         this.setState({selectedPhotoId: id, showModal: true, loadedPhoto: null});
          axios.get(`https://boiling-refuge-66454.herokuapp.com/images/${  id}`)
                 .then(response => {
-                    this.setState({loadedPhoto: response.data})
+                    this.setState({loadedPhoto: response.data});
+                    this.setState({loadedPhoto: response.data});
                 })
                  .catch(error => {
                      console.log(error);

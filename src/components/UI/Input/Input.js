@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { string, func, number } from 'prop-types';
 import classes from './Input.module.scss';
 
 
@@ -14,7 +14,7 @@ Input.propTypes = {
   label: string.isRequired,
   value: string.isRequired,
   onchange: func.isRequired,
-  id: string.isRequired
+  id: number.isRequired
 };
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { string } from 'prop-types';
+import { number } from 'prop-types';
 import classes from './NewComment.module.scss';
 import Input from "../UI/Input/Input";
 
@@ -62,7 +62,7 @@ class NewComment extends Component {
 }
 
 NewComment.propTypes = {
-    photoKey: string.isRequired,
+    photoKey: number.isRequired,
 };
 
 export default NewComment;

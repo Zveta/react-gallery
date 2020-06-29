@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { shape, string } from 'prop-types';
+import { shape, string, number } from 'prop-types';
 import classes from './FullPhoto.module.scss';
 import Comment from '../../components/Comment/Comment';
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -38,11 +38,11 @@ class FullPhoto extends Component {
 }
 
 FullPhoto.propTypes = {
-  id: string.isRequired,
+  id: number.isRequired,
   loadedPhoto: shape(
     {
       url: string.isRequired,
-      id: string.isRequired
+      id: number.isRequired
     })
 };
 
