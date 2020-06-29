@@ -7,7 +7,6 @@
   opacity: 1;
 
   width: 100%;
-  min-height: 540px;
 
   background-color: white;
   transition: all 0.5s ease-out;
@@ -18,7 +17,6 @@
     transform: translate(-50%, -50%);
 
     width: 620px;
-    min-height: 425px;
   }
 
   &__close {

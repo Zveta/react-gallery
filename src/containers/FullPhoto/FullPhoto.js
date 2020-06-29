@@ -24,10 +24,12 @@ class FullPhoto extends Component {
                     <div className={classes.FullPhoto__img}>
                         <img src={loadedPhoto.url} alt=""/>
                     </div>
-                    <ul className={classes.FullPhoto__comments}>
-                        {comments}
-                    </ul>
-                    <NewComment photoKey={loadedPhoto.id}/>
+                    <div className={classes.FullPhoto__wrap}>
+                      <ul className={classes.FullPhoto__comments}>
+                          {comments}
+                      </ul>
+                      <NewComment photoKey={loadedPhoto.id}/>
+                    </div>
                 </div>
             )
         }
