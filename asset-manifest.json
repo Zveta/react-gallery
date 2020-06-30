@@ -1,14 +1,14 @@
 {
-  "main.css": "/react-gallery/static/css/main.dd0afeb9.chunk.css",
-  "main.js": "/react-gallery/static/js/main.e6548803.chunk.js",
-  "main.js.map": "/react-gallery/static/js/main.e6548803.chunk.js.map",
-  "static/js/1.70ad1d54.chunk.js": "/react-gallery/static/js/1.70ad1d54.chunk.js",
-  "static/js/1.70ad1d54.chunk.js.map": "/react-gallery/static/js/1.70ad1d54.chunk.js.map",
+  "main.css": "/react-gallery/static/css/main.5332af25.chunk.css",
+  "main.js": "/react-gallery/static/js/main.dc091797.chunk.js",
+  "main.js.map": "/react-gallery/static/js/main.dc091797.chunk.js.map",
+  "static/js/1.9ca5e143.chunk.js": "/react-gallery/static/js/1.9ca5e143.chunk.js",
+  "static/js/1.9ca5e143.chunk.js.map": "/react-gallery/static/js/1.9ca5e143.chunk.js.map",
   "runtime~main.js": "/react-gallery/static/js/runtime~main.6a638fed.js",
   "runtime~main.js.map": "/react-gallery/static/js/runtime~main.6a638fed.js.map",
-  "static/media/index.scss": "/react-gallery/static/media/RobotoCondensed.16890678.woff2",
-  "static/css/main.dd0afeb9.chunk.css.map": "/react-gallery/static/css/main.dd0afeb9.chunk.css.map",
+  "static/media/index.scss": "/react-gallery/static/media/Roboto.ba3dcd89.woff",
+  "static/css/main.5332af25.chunk.css.map": "/react-gallery/static/css/main.5332af25.chunk.css.map",
   "index.html": "/react-gallery/index.html",
-  "precache-manifest.76e433cf3b48a3a3abf3d58769b8966f.js": "/react-gallery/precache-manifest.76e433cf3b48a3a3abf3d58769b8966f.js",
+  "precache-manifest.d63eb713bc0338cb3fa42bfe08570dec.js": "/react-gallery/precache-manifest.d63eb713bc0338cb3fa42bfe08570dec.js",
   "service-worker.js": "/react-gallery/service-worker.js"
 }
